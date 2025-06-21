@@ -1,12 +1,12 @@
 <?php
-// require 'auth.php';
+require 'auth.php';
 require 'db.php';
 
 // Ensure only farmers
-// if ($_SESSION['user']['role'] !== 'farmer') {
-//     header('Location: farmer.php');
-//     exit;
-// }
+if ($_SESSION['user']['role'] !== 'farmer') {
+    header('Location: farmer.php');
+    exit;
+}
 
 // Fetch sensor data
 $result = $conn->query("SELECT * FROM sensor_data ORDER BY timestamp DESC LIMIT 50");
